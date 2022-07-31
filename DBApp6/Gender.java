@@ -1,6 +1,14 @@
+import javax.persistence.*;
+
+@Entity
+@Table(name="gender")
+
 public class Gender {
-    
+
+    @Id
+    @Column(name = "id")
     private int id;
+    @Column(name = "name")
     private String name;
 
     public Gender(){
