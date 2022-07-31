@@ -7,7 +7,7 @@ public class HibernateUtil {
 
     static{
         try{
-            new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+           session = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         }
         catch(Throwable exec){
             System.out.println("Failed! "+exec.getMessage());

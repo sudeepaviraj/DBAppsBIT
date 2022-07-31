@@ -1,6 +1,10 @@
 import javax.persistence.*;
 
 @Entity
+@Table(name="employee")
+@NamedQueries({
+    @NamedQuery(name = "get_all",query = "SELECT e FROM Employee e")
+})
 public class Employee {
     @Id
     @Column(name = "id")

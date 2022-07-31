@@ -1,29 +1,39 @@
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.*;
 
 public class CommonDao {
     
-    public static ResultSet get(String sql){
+    public static List get(String named_query){
 
-        try
-        { 
-            // 1. Create A Database Connection -> java.sql.DriverManager
+        List object = new ArrayList<>();
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/employee","root","");
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction trans = null;
 
-            // 2. Create A Statement
-            Statement statement = con.createStatement(1004,1007);
-        
-            ResultSet result = statement.executeQuery(sql);
+        try{
+           trans = session.beginTransaction();
+           Query query = session.getNamedQuery(named_query);
+           ;
 
-            return result;
-        
+           for (Object element :(List)query.list()){
+            object.add(element);
+           }
+
         }
-        catch(SQLException expection)
-        {
-            System.out.println("Error"+expection.getMessage());
-        }
+        catch(Exception h){
 
-        return null;
+            System.out.println("Error"+h.getMessage());
+            if(trans!=null){
+                trans.rollback();
+            }
+
+        }
+        finally{
+            session.close();
+        }
+        return object;
 
     }
     
