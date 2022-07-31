@@ -5,13 +5,7 @@ public class GenderDao{
     public static Gender getbyId(int gender_id){
 
     try{
-
-
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/employee","root","");
-        Statement  stm = connection.createStatement();
-        String sql = "SELECT * FROM gender where id = "+gender_id+";";
-        
-        ResultSet res = stm.executeQuery(sql);
+        ResultSet res = CommonDao.get("SELECT * FROM gender where id = "+gender_id+";");
 
         res.next();
 

@@ -11,15 +11,7 @@ public class EmployeeDao {
         try
 
         { 
-            // 1. Create A Database Connection -> java.sql.DriverManager
-
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/employee","root","");
-
-            // 2. Create A Statement
-            Statement statement = con.createStatement(1004,1007);
-
-            // 3. Execute The SQL
-            ResultSet result = statement.executeQuery("Select * from employee");
+            ResultSet result = CommonDao.get("SELECT * FROM employee");
 
             while(result.next()){
                 int id = result.getInt("id");
