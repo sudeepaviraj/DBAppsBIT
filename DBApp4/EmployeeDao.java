@@ -13,7 +13,7 @@ public class EmployeeDao {
         { 
             // 1. Create A Database Connection -> java.sql.DriverManager
 
-            Connection con = DriverManager.getConnection("jbdc:mysql://localhost:3306/employee","root","sudeepa");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/employee","root","");
 
             // 2. Create A Statement
             Statement statement = con.createStatement(1004,1007);

@@ -7,7 +7,7 @@ public class GenderDao{
     try{
 
 
-        Connection connection = DriverManager.getConnection("jbdc:mysql://localhost:3306/employee","root","sudeepa");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/employee","root","");
         Statement  stm = connection.createStatement();
         String sql = "SELECT * FROM gender where id = "+gender_id+";";
         

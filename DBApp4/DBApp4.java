@@ -11,7 +11,7 @@ public class DBApp4 {
             System.out.print(emloyee.getId()+" ");
             System.out.print(emloyee.getName()+" ");
             System.out.print(emloyee.getNic()+" ");
-            System.out.print(emloyee.getGender()+" ");
+            System.out.print(emloyee.getGender().getName()+" ");
             System.out.println("");
 
         }
