@@ -16,6 +16,14 @@ public class DBApp6 {
 
         }
 
+        List<Gender> genders = GenderDao.getAll();
+
+        for(Gender gender:genders){
+            System.out.print(gender.getid());
+            System.out.print("\t");
+            System.out.print(gender.getName());
+        }
+
 
     }
     
