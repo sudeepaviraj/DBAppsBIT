@@ -10,10 +10,9 @@ public class GenderDao{
 
     public static List<Gender> getAll(){
 
-       List<Gender> gender = CommonDao.getall(Gender.class);
-    
-        return gender;
+        List<Gender> gender = CommonDao.getall("SELECT g FROM Gender g");
 
+        return gender;
     }
     
 }
