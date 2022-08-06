@@ -5,14 +5,10 @@ import org.hibernate.*;
 public class GenderDao{
 
     public static List<Gender> getAll(){
-        
-        Session session = HibernateUtil.getSessionFactory().openSession();
 
-        Query qry =session.getNamedQuery(named_query);
-        
-        List objList =  qry.list();
+        List<Gender> gender =  CommonDao.getall("SELECT * FROM gender", Gender.class);
     
-        return objList;
+        return gender;
 
     }
     
