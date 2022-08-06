@@ -10,19 +10,7 @@ public class GenderDao{
 
     public static List<Gender> getAll(){
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
-
-       CriteriaBuilder criteria = session.getCriteriaBuilder();
-
-       CriteriaQuery<Gender> qry = criteria.createQuery(Gender.class);
-
-       Root<Gender> root = qry.from(Gender.class);
-
-       qry.select(root);
-
-       Query<Gender> q = session.createQuery(qry);
-
-       List<Gender> gender = q.getResultList();
+       List<Gender> gender = CommonDao.getall(Gender.class);
     
         return gender;
 
